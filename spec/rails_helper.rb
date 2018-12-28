@@ -4,6 +4,7 @@
 require "selenium/webdriver"
 require "factory_bot_rails"
 require "capybara/rspec"
+require "capybara-screenshot/rspec"
 require "spec_helper"
 
 ENV["RAILS_ENV"] ||= "test"
@@ -40,19 +41,10 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include FactoryBot::Syntax::Methods
 
-  Capybara.register_driver :chrome do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
-  Capybara.register_driver :headless_chrome do |app|
-    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w(headless disable-gpu) }
-    )
-    Capybara::Selenium::Driver.new app,
-                                   browser: :chrome,
-                                   desired_capabilities: capabilities
-  end
-  Capybara.javascript_driver = :headless_chrome
+  Capybara.default_driver = :selenium_chrome_headless
+  Capybara.javascript_driver = :selenium_chrome_headless
   Capybara.server = :puma, { Silent: true }
+  Capybara.asset_host = "http://localhost:3000"
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

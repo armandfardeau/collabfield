@@ -1,0 +1,10 @@
+.form {
+  &__sign-up {
+    margin-top: px_to_rem(100);
+    h1 {
+      font-size: px_to_rem(36);
+    }
+    text-align: center;
+    padding-bottom: px_to_rem(20);
+  }
+}

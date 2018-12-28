@@ -7,6 +7,9 @@
 @import "base/variables";
 @import "base/defaults";
 
+@import "responsive/desktop";
+@import "responsive/mobile";
+
 @import "components/layouts";
 @import "components/forms";
 @import "components/navigations";

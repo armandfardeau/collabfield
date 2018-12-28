@@ -15,4 +15,11 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
-//= require_tree .
+//= require toastr
+
+toastr.options = {
+    "preventDuplicates": true,
+    "escapeHtml": true,
+    "closeButton": true,
+    "positionClass": "toast-bottom-right",
+};

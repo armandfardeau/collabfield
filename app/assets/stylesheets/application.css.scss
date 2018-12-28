@@ -1,3 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "base/utilities";
+@import "base/variables";
+
+@import "components/layouts";
+@import "components/navigations";
 @import "components/pages";
